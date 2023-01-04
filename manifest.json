@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Platzi - Course Time",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/platzi-logo.png"
+  },
+  "description": "This plugin let you know the exact time of a course."
+}
