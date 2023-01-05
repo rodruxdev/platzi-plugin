@@ -5,9 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./popup.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <p>Hello World!</p>
+    <header>
+      <button class="icon-button">
+        <img src="./icons/back.svg" alt="back" class="icon" />
+      </button>
+      <div class="image-wrapper">
+        <img src="./icons/platzi-logo-h.png" alt="Logo Platzi" class="logo" />
+      </div>
+    </header>
+    <main>
+      <h1>Duración del Curso</h1>
+      <div class="time">
+        <h2>Tiempo total del curso</h2>
+        <p class="time__text">
+          <span id="hours-total">00</span>:<span id="mins-total">00</span>:<span
+            id="secs-total"
+            >00</span
+          >
+        </p>
+      </div>
+      <div class="time">
+        <h2>Tiempo completado del curso</h2>
+        <p class="time__text">
+          <span id="hours-watched">00</span>:<span id="mins-watched">00</span
+          >:<span id="secs-watched">00</span>
+        </p>
+      </div>
+      <div class="time">
+        <h2>Tiempo por ver del curso</h2>
+        <p class="time__text">
+          <span id="hours-left">00</span>:<span id="mins-left">00</span>:<span
+            id="secs-left"
+            >00</span
+          >
+        </p>
+      </div>
+      <button class="button--active">CALCULAR TIEMPO PARA VER</button>
+    </main>
+    <footer>
+      <p class="footer__text">Nunca pares de aprender💚</p>
+    </footer>
     <script src="./popup.js" type="module"></script>
   </body>
 </html>
