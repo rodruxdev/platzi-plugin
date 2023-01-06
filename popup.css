@@ -46,9 +46,19 @@ p {
   font-weight: 500;
 }
 
-button {
+button,
+input {
   font-family: "Roboto", sans-serif;
   cursor: pointer;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 header {
@@ -68,6 +78,10 @@ header {
   background-color: transparent;
 }
 
+#back {
+  opacity: 0;
+}
+
 .image-wrapper {
   width: 100px;
   height: 40px;
@@ -84,7 +98,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
 }
 
 .time {
@@ -92,11 +106,41 @@ main {
   margin: 0 auto;
 }
 
-.time__text {
+.time__text,
+.time__input {
   text-align: center;
   font-size: 4.6rem;
   line-height: 4.8rem;
-  margin-top: 18px;
+  margin-top: 10px;
+}
+
+.time__input {
+  width: 65px;
+  border: 3px solid var(--light-blue2);
+  border-radius: 8px;
+  display: inline-block;
+  background-color: transparent;
+  color: var(--white);
+}
+
+.time__input:nth-child(2) {
+  border-color: var(--purple);
+}
+
+.time__input:nth-child(3) {
+  border-color: var(--yellow);
+}
+
+.time__input:focus {
+  outline-color: var(--light-blue2);
+}
+
+.time__input:nth-child(2):focus {
+  outline-color: var(--purple);
+}
+
+.time__input:nth-child(3):focus {
+  outline-color: var(--yellow);
 }
 
 .button--active,
@@ -119,7 +163,7 @@ main {
 }
 
 footer {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .footer__text {
@@ -155,6 +199,7 @@ footer {
 }
 
 .classes-container {
+  max-width: 290px;
   margin-block: 2px;
   display: flex;
   flex-direction: column;

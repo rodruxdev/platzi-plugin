@@ -1,4 +1,4 @@
-const template = `
+export const home = `
 <h1>Duración del Curso</h1>
 <div class="time">
   <h2>Tiempo total del curso</h2>
@@ -25,5 +25,5 @@ const template = `
     >
   </p>
 </div>
-<button class="button--active">CALCULAR TIEMPO PARA VER</button>
+<button class="button--active" id="time-calc">CALCULAR TIEMPO PARA VER</button>
 `;

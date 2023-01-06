@@ -1,7 +1,7 @@
-const template = `
+export const classes = `
 <div class="buttons-container">
 <div class="button--active">CLASES</div>
-<button class="button--inactive">TIEMPO</button>
+<button class="button--inactive" id="class-calc">TIEMPO</button>
 </div>
 <div class="time">
 <h2>Tiempo total</h2>
