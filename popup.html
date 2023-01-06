@@ -16,43 +16,107 @@
   <body>
     <header>
       <button class="icon-button">
-        <img src="./icons/back.svg" alt="back" class="icon" />
+        <svg
+          width="35"
+          height="35"
+          viewBox="0 0 50 50"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M22.6562 40.2083L8.90617 26.4583C8.69784 26.25 8.54992 26.0243 8.46242 25.7812C8.37631 25.5382 8.33325 25.2778 8.33325 25C8.33325 24.7222 8.37631 24.4618 8.46242 24.2187C8.54992 23.9757 8.69784 23.75 8.90617 23.5417L22.6562 9.79167C23.0381 9.40972 23.5152 9.20972 24.0874 9.19167C24.661 9.175 25.1562 9.375 25.5728 9.79167C25.9895 10.1736 26.2069 10.6507 26.2249 11.2229C26.2416 11.7965 26.0416 12.2917 25.6249 12.7083L15.4166 22.9167H38.6978C39.2881 22.9167 39.7833 23.116 40.1833 23.5146C40.5819 23.9146 40.7812 24.4097 40.7812 25C40.7812 25.5903 40.5819 26.0847 40.1833 26.4833C39.7833 26.8833 39.2881 27.0833 38.6978 27.0833H15.4166L25.6249 37.2917C26.0069 37.6736 26.2069 38.1597 26.2249 38.75C26.2416 39.3403 26.0416 39.8264 25.6249 40.2083C25.243 40.625 24.7569 40.8333 24.1666 40.8333C23.5763 40.8333 23.0728 40.625 22.6562 40.2083V40.2083Z"
+            fill="#EFF3F8"
+          />
+        </svg>
       </button>
       <div class="image-wrapper">
         <img src="./icons/platzi-logo-h.png" alt="Logo Platzi" class="logo" />
       </div>
     </header>
     <main>
-      <h1>Duración del Curso</h1>
-      <div class="time">
-        <h2>Tiempo total del curso</h2>
-        <p class="time__text">
-          <span id="hours-total">00</span>:<span id="mins-total">00</span>:<span
-            id="secs-total"
-            >00</span
-          >
-        </p>
+      <div class="buttons-container">
+        <div class="button--active">CLASES</div>
+        <button class="button--inactive">TIEMPO</button>
       </div>
       <div class="time">
-        <h2>Tiempo completado del curso</h2>
+        <h2>Tiempo total</h2>
         <p class="time__text">
-          <span id="hours-watched">00</span>:<span id="mins-watched">00</span
-          >:<span id="secs-watched">00</span>
+          <span id="hours-partial">00</span>:<span id="mins-partial">00</span
+          >:<span id="secs-partial">00</span>
         </p>
       </div>
-      <div class="time">
-        <h2>Tiempo por ver del curso</h2>
-        <p class="time__text">
-          <span id="hours-left">00</span>:<span id="mins-left">00</span>:<span
-            id="secs-left"
-            >00</span
-          >
-        </p>
+      <div>
+        <h2>Clases</h2>
+        <div class="scroll-container">
+          <div class="classes-container">
+            <div class="class-wrapper">
+              <input
+                type="checkbox"
+                name="classes"
+                id="class-1"
+                class="class__input"
+              />
+              <label for="class-1" class="class__label">
+                <div class="class__container">
+                  <div class="class__checkbox">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="svg-check--active"
+                    >
+                      <path
+                        d="M7.95825 15L3.20825 10.25L4.39575 9.06252L7.95825 12.625L15.6041 4.97919L16.7916 6.16669L7.95825 15Z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="class__info">
+                    <p class="class__title">
+                      Un mensaje de bienvenida de Sytse, CEO de GitLab
+                    </p>
+                    <p class="class__completed">
+                      <span class="class__logo">
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 20 20"
+                          fill="#98CA3F"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7.95825 15L3.20825 10.25L4.39575 9.06252L7.95825 12.625L15.6041 4.97919L16.7916 6.16669L7.95825 15Z"
+                            fill="#98CA3F"
+                          />
+                        </svg> </span
+                      >Completada
+                    </p>
+                    <p class="class__to-watch">
+                      <span class="class__logo">
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M9.99992 3.75C5.83325 3.75 2.27492 6.34167 0.833252 10C2.27492 13.6583 5.83325 16.25 9.99992 16.25C14.1666 16.25 17.7249 13.6583 19.1666 10C17.7249 6.34167 14.1666 3.75 9.99992 3.75ZM9.99992 14.1667C7.69992 14.1667 5.83325 12.3 5.83325 10C5.83325 7.7 7.69992 5.83333 9.99992 5.83333C12.2999 5.83333 14.1666 7.7 14.1666 10C14.1666 12.3 12.2999 14.1667 9.99992 14.1667ZM9.99992 7.5C8.61659 7.5 7.49992 8.61667 7.49992 10C7.49992 11.3833 8.61659 12.5 9.99992 12.5C11.3833 12.5 12.4999 11.3833 12.4999 10C12.4999 8.61667 11.3833 7.5 9.99992 7.5Z"
+                            fill="#EFF3F8"
+                          />
+                        </svg> </span
+                      >Por ver
+                    </p>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
       </div>
-      <button class="button--active">CALCULAR TIEMPO PARA VER</button>
     </main>
     <footer>
-      <p class="footer__text">Nunca pares de aprender💚</p>
+      <p class="footer__text">Nunca pares de aprender 💚</p>
     </footer>
     <script src="./popup.js" type="module"></script>
   </body>
