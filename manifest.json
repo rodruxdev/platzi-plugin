@@ -6,5 +6,6 @@
     "default_popup": "popup.html",
     "default_icon": "icons/platzi-logo.png"
   },
-  "description": "This plugin let you know the exact time of a course."
+  "description": "This plugin let you know the exact time of a course.",
+  "permissions": ["tab", "scripting"]
 }
