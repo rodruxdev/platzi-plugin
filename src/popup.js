@@ -2,22 +2,28 @@ import { home } from "./templates/home.js";
 import { classes } from "./templates/classes.js";
 import { time } from "./templates/time.js";
 import getData from "./utils/getData.js";
+import calculateTime from "./utils/calculateTime.js";
 
+const [tab] = await chrome.tabs.query({ active: true });
+const url = tab.url;
+const CLASSES_URL_REGEX = new RegExp("https://platzi.com/cursos/*");
 const main = document.getElementById("main");
 const backButton = document.getElementById("back");
 main.innerHTML = home;
 addClickEvent("time-calc", showClassesSelection);
 addClickEvent("back", backToHome);
 
-const [tab] = await chrome.tabs.query({ active: true });
-const url = tab.url;
-const CLASSES_URL_REGEX = new RegExp("https://platzi.com/cursos/*");
+let data = [];
 if (url.match(CLASSES_URL_REGEX)) {
-  const res = await getData(tab.id);
-  console.log("🚀 ~ file: popup.js:17 ~ res", res);
+  data = await getData(tab.id);
 } else {
   console.log("No es una landing de curso.");
 }
+
+const totalTime = calculateTime(data);
+const viewedTime = calculateTime(data, 1);
+const notViewedTime = calculateTime(data, 2);
+console.log(totalTime, viewedTime, notViewedTime);
 
 function showClassesSelection() {
   main.innerHTML = classes;
