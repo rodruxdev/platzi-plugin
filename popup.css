@@ -294,10 +294,6 @@ footer {
   line-height: 1.2rem;
 }
 
-.class__to-watch {
-  display: none;
-}
-
 .class__completed {
   color: var(--green);
 }

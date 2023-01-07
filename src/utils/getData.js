@@ -1,6 +1,6 @@
 async function getData(tabId) {
   function scriptData() {
-    function getClassData(element) {
+    function getClassData(data, element) {
       // Get title, time and viewed status
       const title = element.querySelector("h5").textContent;
       const timeNode = element.querySelector("p");
@@ -10,12 +10,12 @@ async function getData(tabId) {
       if (timeNode) {
         timeInText = timeNode.textContent;
       } else {
-        return {};
+        return data;
       }
       if (viewedNode) {
         viewedText = viewedNode.textContent;
       } else {
-        return {};
+        return data;
       }
       // Calculate total seconds
       const [minutes, seconds] = timeInText.split(" ")[0].split(":");
@@ -26,11 +26,12 @@ async function getData(tabId) {
       if (viewedText.includes("no")) {
         viewed = true;
       }
-      return { title, time: totalSeconds, viewed };
+      data.push({ title, time: totalSeconds, viewed });
+      return data;
     }
 
     const nodeClasses = [...document.querySelectorAll(".ContentClass")];
-    const data = nodeClasses.map(getClassData);
+    const data = nodeClasses.reduce(getClassData, []);
     return data;
   }
 
