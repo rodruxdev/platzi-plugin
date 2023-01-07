@@ -22,8 +22,21 @@ if (url.match(CLASSES_URL_REGEX)) {
 
 const totalTime = calculateTime(data);
 const viewedTime = calculateTime(data, 1);
-const notViewedTime = calculateTime(data, 2);
-console.log(totalTime, viewedTime, notViewedTime);
+const leftTime = calculateTime(data, 2);
+
+showTime("total-time", totalTime);
+showTime("viewed-time", viewedTime);
+showTime("left-time", leftTime);
+
+function showTime(id, time) {
+  const timeNode = document.getElementById(id);
+  const [hoursNode, minutesNode, secondsNode] = [
+    ...timeNode.querySelectorAll("span"),
+  ];
+  hoursNode.innerHTML = time.hours;
+  minutesNode.innerHTML = time.minutes;
+  secondsNode.innerHTML = time.seconds;
+}
 
 function showClassesSelection() {
   main.innerHTML = classes;
