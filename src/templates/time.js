@@ -7,15 +7,15 @@ export const time = `
   <label for="hour-input">
     <h2>Tiempo para ver</h2>
   </label>
-  <p class="time__text">
+  <p class="time__text" id="time-inputs">
     <input
       type="number"
       placeholder="00"
-      id="hour-input"
+      id="hours-input"
       class="time__input"
     />
-    : <input type="number" placeholder="00" class="time__input" /> :
-    <input type="number" placeholder="00" class="time__input" />
+    : <input type="number" placeholder="00" class="time__input" id="minutes-input"/> :
+    <input type="number" placeholder="00" class="time__input" id="seconds-input"/>
   </p>
 </div>
 <div>

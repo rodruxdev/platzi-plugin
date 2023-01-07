@@ -5,6 +5,7 @@ import getData from "./utils/getData.js";
 import calculateTime from "./utils/calculateTime.js";
 import addClickEvent from "./utils/addClickEvent.js";
 import createCheckboxs from "./utils/createCheckboxs.js";
+import calculateTotalSeconds from "./utils/calculateTotalSeconds.js";
 
 // Show functions
 function showHome() {
@@ -53,6 +54,17 @@ function showClassesSelection() {
 function showTimeSelection() {
   main.innerHTML = time;
   addClickEvent("time-calc", showClassesSelection);
+  const inputsContainer = document.getElementById("time-inputs");
+  const inputNodes = [...inputsContainer.querySelectorAll("input")];
+  inputNodes.forEach((inputNode) => {
+    inputNode.addEventListener("change", (event) => {
+      const totalSeconds = calculateTotalSeconds(event, inputsContainer);
+      console.log(
+        "🚀 ~ file: popup.js:62 ~ inputNode.addEventListener ~ totalSeconds",
+        totalSeconds
+      );
+    });
+  });
 }
 
 // Init plugin
