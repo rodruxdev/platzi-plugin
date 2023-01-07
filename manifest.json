@@ -7,5 +7,5 @@
     "default_icon": "icons/platzi-logo.png"
   },
   "description": "This plugin let you know the exact time of a course.",
-  "permissions": ["tab", "scripting"]
+  "permissions": ["activeTab", "scripting"]
 }
