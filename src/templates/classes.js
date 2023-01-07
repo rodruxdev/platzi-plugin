@@ -5,9 +5,9 @@ export const classes = `
 </div>
 <div class="time">
 <h2>Tiempo total</h2>
-<p class="time__text">
-  <span id="hours-partial">00</span>:<span id="mins-partial">00</span
-  >:<span id="secs-partial">00</span>
+<p class="time__text" id="classes-time">
+  <span>00</span>:<span>00</span
+  >:<span>00</span>
 </p>
 </div>
 <div>

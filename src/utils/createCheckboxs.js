@@ -8,6 +8,7 @@ function createCheckboxs(template, classes) {
     const [toWatch] = checkbox.getElementsByClassName("class__to-watch");
 
     input.setAttribute("id", `class-${index}`);
+    input.value = index;
     label.setAttribute("for", `class-${index}`);
     title.innerHTML = classItem.title;
     if (classItem.viewed) {

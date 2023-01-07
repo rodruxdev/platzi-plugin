@@ -35,6 +35,19 @@ function showClassesSelection() {
   const checkboxs = createCheckboxs(checkBoxTemplate, data);
   const checkboxsContainer = document.getElementById("checkboxs-container");
   checkboxsContainer.append(...checkboxs);
+  checkboxsContainer.addEventListener("change", (event) => {
+    const index = event.target.value;
+    const selectedClassIndex = selectedClasses.findIndex(
+      (selected) => selected.id == index
+    );
+    if (selectedClassIndex === -1) {
+      selectedClasses.push({ ...data[index], id: index });
+    } else {
+      selectedClasses.splice(selectedClassIndex, 1);
+    }
+    const classesTime = calculateTime(selectedClasses);
+    showTime("classes-time", classesTime);
+  });
 }
 
 function showTimeSelection() {
@@ -43,12 +56,13 @@ function showTimeSelection() {
 }
 
 // Init plugin
-const [tab] = await chrome.tabs.query({ active: true });
+const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 const url = tab.url;
 const CLASSES_URL_REGEX = new RegExp("https://platzi.com/cursos/*");
-let totalTime = [];
-let viewedTime = [];
-let leftTime = [];
+let totalTime = {};
+let viewedTime = {};
+let leftTime = {};
+let selectedClasses = [];
 
 const main = document.getElementById("main");
 const backButton = document.getElementById("back");
