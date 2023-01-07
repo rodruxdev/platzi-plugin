@@ -6,6 +6,7 @@ import calculateTime from "./utils/calculateTime.js";
 import addClickEvent from "./utils/addClickEvent.js";
 import createCheckboxs from "./utils/createCheckboxs.js";
 import calculateTotalSeconds from "./utils/calculateTotalSeconds.js";
+import getClassesToView from "./utils/getClassesToView.js";
 
 // Show functions
 function showHome() {
@@ -56,12 +57,14 @@ function showTimeSelection() {
   addClickEvent("time-calc", showClassesSelection);
   const inputsContainer = document.getElementById("time-inputs");
   const inputNodes = [...inputsContainer.querySelectorAll("input")];
+  let classesToView = [];
   inputNodes.forEach((inputNode) => {
     inputNode.addEventListener("change", (event) => {
       const totalSeconds = calculateTotalSeconds(event, inputsContainer);
+      classesToView = getClassesToView(totalSeconds, notViewed);
       console.log(
-        "🚀 ~ file: popup.js:62 ~ inputNode.addEventListener ~ totalSeconds",
-        totalSeconds
+        "🚀 ~ file: popup.js:65 ~ inputNode.addEventListener ~ classesToView",
+        classesToView
       );
     });
   });
@@ -82,8 +85,10 @@ const checkBoxTemplate = document.getElementById("checkbox-template");
 addClickEvent("back", showHome);
 
 let data = [];
+let notViewed = [];
 if (url.match(CLASSES_URL_REGEX)) {
   data = await getData(tab.id);
+  notViewed = data.filter((item) => !item.viewed);
   totalTime = calculateTime(data);
   viewedTime = calculateTime(data, 1);
   leftTime = calculateTime(data, 2);
