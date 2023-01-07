@@ -4,6 +4,7 @@ import { time } from "./templates/time.js";
 import getData from "./utils/getData.js";
 import calculateTime from "./utils/calculateTime.js";
 import addClickEvent from "./utils/addClickEvent.js";
+import createCheckboxs from "./utils/createCheckboxs.js";
 
 // Show functions
 function showHome() {
@@ -31,6 +32,9 @@ function showClassesSelection() {
   backButton.style.opacity = 1;
   backButton.disabled = false;
   addClickEvent("class-calc", showTimeSelection);
+  const checkboxs = createCheckboxs(checkBoxTemplate, data);
+  const checkboxsContainer = document.getElementById("checkboxs-container");
+  checkboxsContainer.append(...checkboxs);
 }
 
 function showTimeSelection() {
@@ -48,6 +52,7 @@ let leftTime = [];
 
 const main = document.getElementById("main");
 const backButton = document.getElementById("back");
+const checkBoxTemplate = document.getElementById("checkbox-template");
 addClickEvent("back", showHome);
 
 let data = [];
