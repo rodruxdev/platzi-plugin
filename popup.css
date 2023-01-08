@@ -35,8 +35,7 @@ h1 {
 }
 
 h2,
-button,
-.footer__text {
+button {
   font-weight: 500;
   font-size: 1.6rem;
   line-height: 2rem;
@@ -93,7 +92,7 @@ header {
 
 main {
   width: 100%;
-  margin-block: 20px;
+  margin-block: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -162,13 +161,20 @@ main {
   color: #8da2c0;
 }
 
+.button--inactive:hover {
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
+}
+
 footer {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .footer__text {
   text-align: center;
   font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
 }
 
 .buttons-container {
@@ -180,7 +186,7 @@ footer {
 
 .scroll-container {
   width: 280px;
-  max-height: 234px;
+  max-height: 223px;
   margin-block: 16px;
   overflow-y: auto;
 }
