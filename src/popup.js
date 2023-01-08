@@ -12,6 +12,7 @@ import showClasses from "./utils/showClasses.js";
 // Show functions
 function showHome() {
   main.innerHTML = home;
+  footerParagraph.innerHTML = "Nunca pares de aprender 💚";
   backButton.style.opacity = 0;
   backButton.disabled = true;
   addClickEvent("time-calc", showClassesSelection);
@@ -32,6 +33,10 @@ function showTime(id, time) {
 
 function showClassesSelection() {
   main.innerHTML = classes;
+  footerParagraph.innerHTML = `
+  Recuerda completar los retos y realizar los proyectos. <br />
+  El aprendizaje activo es fundamental.
+  `;
   backButton.style.opacity = 1;
   backButton.disabled = false;
   addClickEvent("class-calc", showTimeSelection);
@@ -58,8 +63,14 @@ function showTimeSelection() {
   addClickEvent("time-calc", showClassesSelection);
   const inputsContainer = document.getElementById("time-inputs");
   const inputNodes = [...inputsContainer.querySelectorAll("input")];
-  let classesToView = [];
   const classesContainer = document.getElementById("classes-container");
+  if (notViewed.length == 0) {
+    classesContainer.innerHTML = `
+      <h1>¡Felicitaciones!</h1>
+      <p style="text-align: center;">Ya terminaste este curso, ve por el siguiente🚀</p>
+    `;
+  }
+  let classesToView = [];
   inputNodes.forEach((inputNode) => {
     inputNode.addEventListener("change", (event) => {
       const totalSeconds = calculateTotalSeconds(event, inputsContainer);
@@ -80,6 +91,7 @@ let selectedClasses = [];
 
 const main = document.getElementById("main");
 const backButton = document.getElementById("back");
+const footerParagraph = document.getElementById("footer-text");
 const checkBoxTemplate = document.getElementById("checkbox-template");
 const classesTemplate = document.getElementById("classes-template");
 addClickEvent("back", showHome);
@@ -94,5 +106,10 @@ if (url.match(CLASSES_URL_REGEX)) {
   leftTime = calculateTime(data, 2);
   showHome();
 } else {
-  console.log("No es una landing de curso.");
+  main.innerHTML = `
+  <div style="width: 80%">
+    <h1 style="margin-bottom: 20px">Esta página web no es un curso de Platzi...</h1>
+    <h2>Ve a un curso de Platzi para nunca parar de aprender 💚</h2>
+  </div>
+  `;
 }

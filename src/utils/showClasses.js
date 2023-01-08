@@ -15,7 +15,6 @@ function showClasses(template, container, classes) {
 
     return classContainer;
   }
-
   const classesContainers = classes.map(formatTemplate);
   container.innerHTML = "";
   container.append(...classesContainers);
