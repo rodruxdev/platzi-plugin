@@ -22,6 +22,8 @@ export const time = `
   <h2>Clases por ver</h2>
   <div class="scroll-container">
     <div class="classes-container" id="classes-container">
+    <h1 style="text-align: center;">Ingresa tu tiempo disponible</h1>
+    <p>Acá apareceran las clases que puedes ver en ese tiempo.</p>
     </div>
   </div>
 </div>

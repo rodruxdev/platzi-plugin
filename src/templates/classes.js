@@ -11,7 +11,7 @@ export const classes = `
 </p>
 </div>
 <div>
-<h2>Clases</h2>
+<h2>Selecciona las clases que vas a ver:</h2>
 <div class="scroll-container">
   <div class="classes-container" id="checkboxs-container">
   </div>
