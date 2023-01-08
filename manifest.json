@@ -18,6 +18,6 @@
     "48": "images/icon-48.png",
     "128": "images/icon-128.png"
   },
-  "author": "rodrigojgq@gmail.com",
+  "author": "rodruxdev@gmail.com",
   "permissions": ["activeTab", "scripting"]
 }
