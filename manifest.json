@@ -1,11 +1,23 @@
 {
   "manifest_version": 3,
-  "name": "Platzi - Course Time",
-  "version": "1.0",
+  "name": "Platzi Time Calculator",
+  "version": "1.0.0",
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "icons/platzi-logo.png"
+    "default_icon": {
+      "16": "images/icon-16.png",
+      "32": "images/icon-32.png",
+      "48": "images/icon-48.png",
+      "128": "images/icon-128.png"
+    }
   },
-  "description": "This plugin let you know the exact time of a course.",
+  "description": "This is a plugin from chromium-based web browsers. This plugin let you know the total time from a Platzi course, the time you've already watched and the time left. You will be able to see how much time will take to see some lessons or input the time you want to study and see what are the lessons you are going to watch.",
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "author": "rodrigojgq@gmail.com",
   "permissions": ["activeTab", "scripting"]
 }
