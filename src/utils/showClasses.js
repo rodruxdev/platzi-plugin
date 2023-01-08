@@ -15,6 +15,13 @@ function showClasses(template, container, classes) {
 
     return classContainer;
   }
+  if (classes.length == 0) {
+    container.innerHTML = `
+    <h1>No hay clases por ver.</h1>
+    <p style="text-align: center;">En este tiempo no podrás terminar tu siguiente clase.<br>Prueba aumentando el tiempo.</p>
+  `;
+    return;
+  }
   const classesContainers = classes.map(formatTemplate);
   container.innerHTML = "";
   container.append(...classesContainers);

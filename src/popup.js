@@ -64,20 +64,21 @@ function showTimeSelection() {
   const inputsContainer = document.getElementById("time-inputs");
   const inputNodes = [...inputsContainer.querySelectorAll("input")];
   const classesContainer = document.getElementById("classes-container");
+  let classesToView = [];
   if (notViewed.length == 0) {
     classesContainer.innerHTML = `
       <h1>¡Felicitaciones!</h1>
       <p style="text-align: center;">Ya terminaste este curso, ve por el siguiente🚀</p>
     `;
-  }
-  let classesToView = [];
-  inputNodes.forEach((inputNode) => {
-    inputNode.addEventListener("change", (event) => {
-      const totalSeconds = calculateTotalSeconds(event, inputsContainer);
-      classesToView = getClassesToView(totalSeconds, notViewed);
-      showClasses(classesTemplate, classesContainer, classesToView);
+  } else {
+    inputNodes.forEach((inputNode) => {
+      inputNode.addEventListener("change", (event) => {
+        const totalSeconds = calculateTotalSeconds(event, inputsContainer);
+        classesToView = getClassesToView(totalSeconds, notViewed);
+        showClasses(classesTemplate, classesContainer, classesToView);
+      });
     });
-  });
+  }
 }
 
 // Init plugin
