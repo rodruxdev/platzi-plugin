@@ -7,6 +7,7 @@ import addClickEvent from "./utils/addClickEvent.js";
 import createCheckboxs from "./utils/createCheckboxs.js";
 import calculateTotalSeconds from "./utils/calculateTotalSeconds.js";
 import getClassesToView from "./utils/getClassesToView.js";
+import showClasses from "./utils/showClasses.js";
 
 // Show functions
 function showHome() {
@@ -58,14 +59,12 @@ function showTimeSelection() {
   const inputsContainer = document.getElementById("time-inputs");
   const inputNodes = [...inputsContainer.querySelectorAll("input")];
   let classesToView = [];
+  const classesContainer = document.getElementById("classes-container");
   inputNodes.forEach((inputNode) => {
     inputNode.addEventListener("change", (event) => {
       const totalSeconds = calculateTotalSeconds(event, inputsContainer);
       classesToView = getClassesToView(totalSeconds, notViewed);
-      console.log(
-        "🚀 ~ file: popup.js:65 ~ inputNode.addEventListener ~ classesToView",
-        classesToView
-      );
+      showClasses(classesTemplate, classesContainer, classesToView);
     });
   });
 }
@@ -82,6 +81,7 @@ let selectedClasses = [];
 const main = document.getElementById("main");
 const backButton = document.getElementById("back");
 const checkBoxTemplate = document.getElementById("checkbox-template");
+const classesTemplate = document.getElementById("classes-template");
 addClickEvent("back", showHome);
 
 let data = [];
